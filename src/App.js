@@ -2,6 +2,7 @@ import './App.css'
 import MainDash from './components/MainDash/MainDash';
 import RightSide from './components/RigtSide/RightSide';
 import Sidebar from './components/Sidebar';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
         <Sidebar/>
         <MainDash/>
         <RightSide/>
+
+        <ToastContainer/>
       </div>
     </div>
   );
