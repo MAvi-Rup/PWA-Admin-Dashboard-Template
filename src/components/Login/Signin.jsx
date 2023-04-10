@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from './../../firebase.init';
+
 import {
     Button,
     Card,
@@ -11,7 +11,11 @@ import {
     Typography
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+
 import Loading from '../Others/Loading';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,8 +49,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Signin() {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    
+
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -63,30 +67,27 @@ function Signin() {
         const email = emailRef.current.value;
         const password = passRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        toast(`Signup Suceesfully ${user.displayName}`)
+        // toast(`Signin Suceesfully ${user.displayName}`)
     };
 
-    const googleSignIn =async ()=>{
-        signInWithGoogle()
-    }
 
-    if (user || gUser) {
+    if (user) {
         navigate('/dashboard');
         toast(`Signup Successfully`)
     }
 
-    if(loading || gLoading){
+    if (loading) {
         return <Loading />
     }
-    if(error ||gError){
-        toast.danger('Something Wrong Please Try Again !')
-        
+    if (error) {
+        toast('Something Wrong Please Try Again !')
+
     }
 
     return (
         <Container maxWidth="sm" className={classes.root}>
             <Card className={classes.card}>
-                <CardMedia className={classes.media} image="https://i.ibb.co/TqDy5Zv/Virgo.png" title="Virgo Pharma" />
+                <CardMedia className={classes.media} image="https://i.ibb.co/TqDy5Zv/Virgo.png" title="Virgo Tobaco" />
                 <Typography component="h1" variant="h5" align="center">
                     Sign in to your account
                 </Typography>
@@ -125,19 +126,9 @@ function Signin() {
                     >
                         Sign In
                     </Button>
-                    <Button
-                        fullWidth
-                        variant="contained"
-                        color="secondary"
-                        onClick={googleSignIn}
-                        className={classes.submit}
-                    >
-                        Sign In with Google
-                    </Button>
-                    <Link to="/forgotpassword" variant="body2">
+                    {/* <Link to="/forgotpassword" variant="body2">
                         Forgot password?
-                    </Link>
-                    <p style={{ color: '#393f81' }}>Don't have an account? <Link to="/" style={{ color: '#393f81' }}>Sign up here</Link></p>
+                    </Link> */}
                 </form>
             </Card>
         </Container>
