@@ -1,13 +1,13 @@
 import React from "react";
 import "./Cards.css";
-import { cardsData } from "../../Data/Data";
+import { cardsDataFT } from "../../Data/Data";
 
 import Card from "../Card/Card";
 
 const Cards = () => {
   return (
     <div className="Cards">
-      {cardsData.map((card, id) => {
+      {cardsDataFT.map((card, id) => {
         return (
           <div className="parentContainer" key={id}>
             <Card

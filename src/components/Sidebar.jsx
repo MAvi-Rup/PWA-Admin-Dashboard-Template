@@ -2,14 +2,27 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 // import Logo from "./favicon-32x32.png";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
-import { SidebarData } from "../Data/Data";
+import { SidebarDataFT } from "../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import { signOut } from "firebase/auth";
+import auth from "../firebase.init";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
 
   const [expanded, setExpaned] = useState(true)
+
+  const navigate = useNavigate();
+
+
+  const logout = () => {
+    signOut(auth);
+    navigate('/')
+    toast("Logout Successfully")
+  };
 
   const sidebarVariants = {
     true: {
@@ -38,7 +51,7 @@ const Sidebar = () => {
       </div>
 
       <div className="menu">
-        {SidebarData.map((item, index) => {
+        {SidebarDataFT.map((item, index) => {
           return (
             <div
               className={selected === index ? "menuItem active" : "menuItem"}
@@ -46,13 +59,13 @@ const Sidebar = () => {
               onClick={() => setSelected(index)}
             >
               <item.icon />
-              <span>{item.heading}</span>
+              <span onClick={()=>{navigate(item.link)}}>{item.heading}</span>
             </div>
           );
         })}
         {/* signoutIcon */}
         <div className="menuItem">
-          <UilSignOutAlt />
+          <UilSignOutAlt onClick={logout}/>
         </div>
       </div>
     </motion.div>

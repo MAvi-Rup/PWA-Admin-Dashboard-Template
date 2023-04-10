@@ -1,0 +1,72 @@
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Add hover effect to form fields */
+input[type="text"]:hover,
+input[type="number"]:hover {
+    background-color: #f2f2f2;
+    transition: all 0.3s ease;
+}
+
+/* Add scroll animation to form */
+.form-container {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fade-in 1s forwards;
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

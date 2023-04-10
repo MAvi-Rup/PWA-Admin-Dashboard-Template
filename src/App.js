@@ -4,24 +4,29 @@ import './App.css'
 // import Sidebar from './components/Sidebar';
 
 import Signin from './components/Login/Signin';
-import { Route,Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import RequireAuth from './components/Others/RequireAuth';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import FarmerRegistrationForm from './components/FieldTechnitian/FarmerRegistrationForm';
+import FTDashboard from './components/FieldTechnitian/FTDashboard';
 
 function App() {
   return (
     <div>
- 
-        <Routes>
-          <Route path='/dashboard' element={<RequireAuth><Home /></RequireAuth>}>
-          </Route>
-          <Route path='/' element={<Signin />}></Route>
 
-        </Routes>
+      <Routes>
+        <Route path='/dashboard' element={<RequireAuth><FTDashboard /></RequireAuth>}>
+          <Route index element={<Home />}></Route>
+          <Route path='reg-farmers' element={<FarmerRegistrationForm />}></Route>
+        </Route>
+        <Route path='/' element={<Signin />}></Route>
+
+      </Routes>
 
 
-        <ToastContainer />
+      <ToastContainer />
 
     </div>
   );

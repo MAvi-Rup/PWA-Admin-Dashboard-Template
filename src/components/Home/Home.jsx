@@ -6,15 +6,10 @@ import '../../App.css'
 
 const Home = () => {
     return (
-        <div className='App'>
-            <div className='AppGlass'>
-            <Sidebar />
+        <>
             <MainDash />
             <RightSide />
-
-            </div>
-            
-        </div>
+        </>
     );
 };
 
