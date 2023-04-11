@@ -43,10 +43,10 @@ const Sidebar = () => {
     animate={window.innerWidth<=768?`${expanded}`:''}
     >
       {/* logo */}
-      <div className="logo">
+      <div className="logo" onClick={()=>{navigate('/dashboard')}}>
         <img src='https://i.ibb.co/yq7hVy8/maskable-icon.png' alt="logo" />
         <span>
-          Vir<span>go </span>Leaf
+          Vir<span>go </span>Leaf 
         </span>
       </div>
 

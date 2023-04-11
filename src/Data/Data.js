@@ -4,7 +4,7 @@ import {
   UilClipboardAlt,
   UilUsersAlt,
   UilPackage,
-  UilChart,
+  UilChart,UilApps,
   UilSignOutAlt,
   UilUserNurse,UilClipboardNotes,UilCreditCard,UilUserPlus,UilFileAlt
 } from "@iconscout/react-unicons";
@@ -42,6 +42,11 @@ export const SidebarData = [
   },
 ];
 export const SidebarDataFT = [
+  {
+    icon: UilApps,
+    heading: 'Dashboard',
+    link: '/dashboard'
+  },
   {
     icon: UilUserPlus,
     heading: 'Registration',
