@@ -54,7 +54,7 @@ const onSubmit = (values) => {
 
 const FarmerRegistrationForm = () => {
     return (
-        <div className="form-container">
+        <div className="form-container fadeInUp">
             <h1>Farmer Registration Form</h1>
             <Formik
                 initialValues={initialValues}
@@ -66,78 +66,78 @@ const FarmerRegistrationForm = () => {
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
                             <Field type="text" name="name" />
-                            <ErrorMessage name="name" />
+                            <ErrorMessage name="name" className="error-message" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="fatherName">Father Name</label>
                             <Field type="text" name="fatherName" />
-                            <ErrorMessage name="fatherName" />
+                            <ErrorMessage name="fatherName" className="error-message" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="village">Village</label>
                             <Field type="text" name="village" />
-                            <ErrorMessage name="village" />
+                            <ErrorMessage name="village" className="error-message" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="upjilla">Thana/Upjilla</label>
                             <Field type="text" name="upjilla" />
-                            <ErrorMessage name="upjilla" />
+                            <ErrorMessage name="upjilla" className="error-message" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="gilla">Gilla</label>
                             <Field type="text" name="gilla" />
-                            <ErrorMessage name="gilla" />
+                            <ErrorMessage name="gilla" className="error-message" />
                         </div>
                         <div className="form-group">
                         <label htmlFor="nid">NID</label>
                         <Field type="text" name="nid" />
-                        <ErrorMessage name="nid" />
+                        <ErrorMessage name="nid" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="mobileNo">Mobile No</label>
                         <Field type="text" name="mobileNo" />
-                        <ErrorMessage name="mobileNo" />
+                        <ErrorMessage name="mobileNo" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="location">Location</label>
                         <Field type="text" name="location" />
-                        <ErrorMessage name="location" />
+                        <ErrorMessage name="location" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="plantation">Plantation</label>
                         <Field type="number" name="plantation" />
-                        <ErrorMessage name="plantation" />
+                        <ErrorMessage name="plantation" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="target">Target</label>
                         <Field type="number" name="target" />
-                        <ErrorMessage name="target" />
+                        <ErrorMessage name="target" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="accountNo">Account No</label>
                         <Field type="text" name="accountNo" />
-                        <ErrorMessage name="accountNo" />
+                        <ErrorMessage name="accountNo" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="bankName">Bank Name</label>
                         <Field type="text" name="bankName" />
-                        <ErrorMessage name="bankName" />
+                        <ErrorMessage name="bankName" className="error-message" />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="branch">Branch</label>
                         <Field type="text" name="branch" />
-                        <ErrorMessage name="branch" />
+                        <ErrorMessage name="branch" className="error-message" style={{color:'red'}}/>
                     </div>
 
                     <div className="form-group">
@@ -155,7 +155,7 @@ const FarmerRegistrationForm = () => {
                                 setFieldValue("farmerPic", event.currentTarget.files[0]);
                             }}
                         />
-                        <ErrorMessage name="farmerPic" />
+                        <ErrorMessage name="farmerPic" className="error-message" />
                     </div>
 
                     <button type="submit">Submit</button>

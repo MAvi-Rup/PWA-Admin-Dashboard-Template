@@ -13,9 +13,9 @@
 
 .App {
   /* padding: 0.5rem 3.5rem; */
-  color: var(--black);
+  /* color: var(--black); */
   background: #00AC61;
-  height: 100vh;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,6 +30,7 @@
   border-radius: 2rem;
   gap: 16px;
   grid-template-columns: 11rem auto 20rem;
+  margin: 30px;
   
 }
 

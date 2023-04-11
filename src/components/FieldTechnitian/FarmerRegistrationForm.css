@@ -1,72 +1,113 @@
+
 .form-container {
-    max-width: 600px;
+    max-width: 50vh;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.form-group {
+    padding: 50px;
+   
+   
+    background-color:#81ecec;
+    background-color: transparent;
+    /* border: 8px solid #58ffff;
+    border-radius: 10px; */
+  }
+  
+  .form-group {
     margin-bottom: 20px;
-}
+  }
+  
 
-label {
+  
+  label {
     display: block;
-    font-weight: bold;
     margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="number"] {
-    width: 100%;
+    color: #333;
+  }
+  
+  input,
+  textarea {
     padding: 10px;
-    border: 1px solid #ccc;
+    width: 100%;
     border-radius: 5px;
-}
-
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
     border: none;
+    background-color: #f6f6f6;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #81ecec;
+  }
+  
+  button[type="submit"] {
+    background-color: #81ecec;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #3e8e41;
-}
-
-.error {
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #4fd1c5;
+  }
+  
+  .error {
     color: red;
-    font-size: 0.8rem;
+    font-size: 14px;
     margin-top: 5px;
-}
-
-/* Add hover effect to form fields */
-input[type="text"]:hover,
-input[type="number"]:hover {
-    background-color: #f2f2f2;
-    transition: all 0.3s ease;
-}
-
-/* Add scroll animation to form */
-.form-container {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fade-in 1s forwards;
-}
-
-@keyframes fade-in {
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+  }
+  
+  .form-group.error input,
+  .form-group.error textarea {
+    border: 2px solid red;
+  }
+  
+  .form-group.error label {
+    color: red;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .form-container {
+      max-width: 100%;
     }
-}
+  }
+  
+  /* Adding padding curve border */
+  input,
+  textarea {
+    padding: 10px;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    background-color: #f6f6f6;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Hover Effect on Form */
+  .form-group:hover input,
+  .form-group:hover textarea {
+    box-shadow: 0 0 10px #81ecec;
+    transition: 0.5s ease;
+  }
+  
+  /* Animations on Scroll */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 50%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+  }
+  
