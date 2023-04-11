@@ -15,6 +15,7 @@
     "firebase": "^9.19.1",
     "formik": "^2.2.9",
     "framer-motion": "^6.2.9",
+    "geolocation": "^0.2.0",
     "react": "^18.0.0",
     "react-apexcharts": "^1.4.0",
     "react-circular-progressbar": "^2.0.4",

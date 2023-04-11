@@ -50,10 +50,10 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #4fd1c5;
+    background-color:#00b894;
   }
   
-  .error {
+  .error-message {
     color: red;
     font-size: 14px;
     margin-top: 5px;
@@ -110,4 +110,23 @@
     animation-name: fadeInUp;
     animation-duration: 1s;
   }
+
+  .location-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .location-btn:hover {
+    background-color: #eee;
+  }
+  
+  
   
