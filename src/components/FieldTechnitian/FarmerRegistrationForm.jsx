@@ -71,6 +71,18 @@ const FarmerRegistrationForm = () => {
     const [isFetchingLocation, setIsFetchingLocation] = useState(false);
     const [locationFieldValue, setLocationFieldValue] = useState("");
 
+    const [selectedJilla, setSelectedJilla] = useState("");
+    const [availableUpjilas, setAvailableUpjilas] = useState([]);
+
+    const jillaUpjilaMap = {
+        Chittagong: ["CTGUpjila1", "CTGUpjila2", "CTGUpjila3"],
+        Rajshahi: ["RAJUpjila4", "RAJUpjila5"],
+        Kustia: ["KUUpjila6", "KUUpjila7"],
+        Manikgonj: ["MKUpjila8", "MKUpjila9", "MkUpjila10"]
+    };
+
+
+
 
     const getLocation = (setFieldValue) => {
         setIsFetchingLocation(true);
@@ -130,24 +142,54 @@ const FarmerRegistrationForm = () => {
 
                         </div>
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="upjilla">Thana/Upjilla</label>
                             <Field type="text" name="upjilla" />
                             <div className="error-message" >
                                 <ErrorMessage name="upjilla" />
                             </div>
 
-                        </div>
+                        </div> */}
 
                         <div className="form-group">
-                            <label htmlFor="gilla">Gilla</label>
-                            <Field type="text" name="gilla" />
+                            <label htmlFor="jilla">Jilla</label>
+                            <Field
+                                as="select"
+                                name="jilla"
+                                value={selectedJilla}
+                                onChange={(e) => {
+                                    const jilla = e.target.value;
+                                    setSelectedJilla(jilla);
+                                    setAvailableUpjilas(jillaUpjilaMap[jilla]);
+                                }}
+                            >
+                                <option value="">Select a Jilla</option>
+                                <option value="Chittagong">Chittagong</option>
+                                <option value="Rajshahi">Rajshahi</option>
+                                <option value="Kustia">Kustia</option>
+                                <option value="Manikgonj">Manikgonj</option>
+                            </Field>
                             <div className="error-message">
-                                <ErrorMessage name="gilla" />
-
+                                <ErrorMessage name="jilla" />
                             </div>
-
                         </div>
+                        {selectedJilla && (
+                            <div className="form-group">
+                                <label htmlFor="upjila">Upjila</label>
+                                <Field as="select" name="upjila">
+                                    <option value="">Select an Upjila</option>
+                                    {availableUpjilas.map((upjila) => (
+                                        <option key={upjila} value={upjila}>
+                                            {upjila}
+                                        </option>
+                                    ))}
+                                </Field>
+                                <div className="error-message">
+                                    <ErrorMessage name="upjila" />
+                                </div>
+                            </div>
+                        )}
+
                         <div className="form-group">
                             <label htmlFor="nid">NID</label>
                             <Field type="text" name="nid" />
