@@ -108,7 +108,7 @@ const FarmerRegistrationForm = () => {
     };
     return (
         <div className="form-container fadeInUp">
-            <h1>Farmer Registration Form</h1>
+            <h1>Register Farmer</h1>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -286,7 +286,7 @@ const FarmerRegistrationForm = () => {
 
                         </div>
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="farmerPic">Farmer Picture</label>
                             <Field
                                 type="file"
@@ -300,7 +300,25 @@ const FarmerRegistrationForm = () => {
 
                             </div>
 
+                        </div> */}
+                        <div className="form-group">
+                            <label htmlFor="farmerPic">Farmer Picture</label>
+                            <input
+                                type="file"
+                                name="farmerPic"
+                                accept="image/*"
+                                onChange={(event) => {
+                                    setFieldValue("farmerPic", event.currentTarget.files[0]);
+                                }}
+                                capture
+                            />
+                            <div className="error-message">
+                                <ErrorMessage name="farmerPic" />
+                            </div>
                         </div>
+
+
+
 
                         <button type="submit">Submit</button>
                     </Form>
