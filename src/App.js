@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FarmerRegistrationForm from './components/FieldTechnitian/FarmerRegistrationForm';
 import FTDashboard from './components/FieldTechnitian/FTDashboard';
+import FTTransportPermit from './components/FieldTechnitian/FTTransportPermit';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><FTDashboard /></RequireAuth>}>
           <Route index element={<Home />}></Route>
           <Route path='reg-farmers' element={<FarmerRegistrationForm />}></Route>
+          <Route path='transport-permit' element={<FTTransportPermit />}></Route>
         </Route>
         <Route path='/' element={<Signin />}></Route>
 

@@ -50,6 +50,8 @@ button[type="submit"] {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 button[type="submit"]:hover {
