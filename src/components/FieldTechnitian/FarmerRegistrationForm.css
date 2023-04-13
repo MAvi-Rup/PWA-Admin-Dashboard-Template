@@ -52,6 +52,7 @@ button[type="submit"] {
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 button[type="submit"]:hover {
@@ -177,4 +178,56 @@ option:disabled {
   width: 100%;
   border-radius: 5px;
   padding: 10px;
+}
+
+
+/* For medium screens and up */
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 50%;
+  }
+  .col-md-12 {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .col-6 {
+    width: 100%;
+  }
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+
+@media print {
+  .permit {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+  
+  .permit > *:first-child {
+    margin-right: auto;
+  }
+  
+  .permit > *:last-child {
+    margin-left: auto;
+  }
 }
