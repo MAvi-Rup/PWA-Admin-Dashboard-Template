@@ -2,11 +2,12 @@ import React, { useState, useRef } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import ReactToPrint from 'react-to-print';
-
+// 
 const validationSchema = Yup.object().shape({
   farmersPhn: Yup.string()
     .required('Required')
-    .matches(/^[0-9]{10}$/, 'Must be a 10-digit number'),
+    .matches(/^[0-9]{11}$/, 'Must be a 11-digit number'),
+
   farmerName: Yup.string().min(3, 'Must be at least 3 characters').required('Required'),
   baleQuantity: Yup.number()
     .typeError('Must be a number')
@@ -27,26 +28,26 @@ const FTTransportPermit = () => {
   const formattedExpiryDate = expiryDate.toLocaleDateString(); // format expiry date as string
   const componentRef = useRef();
 
-const handleSubmit = (values, { resetForm, setErrors }) => {
-  validationSchema
-    .validate(values, { abortEarly: false })
-    .then(() => {
-      // Validation succeeded, set the state with new values
-      const { farmersPhn, farmerName, baleQuantity } = values;
-      setFarmersPhoneNo(farmersPhn);
-      setFarmerName(farmerName);
-      setBaleQuantity(baleQuantity);
-      resetForm();
-    })
-    .catch((errors) => {
-      // Validation failed, display error messages
-      const validationErrors = {};
-      errors.inner.forEach((error) => {
-        validationErrors[error.path] = error.message;
+  const handleSubmit = (values, { resetForm, setErrors }) => {
+    validationSchema
+      .validate(values, { abortEarly: false })
+      .then(() => {
+        // Validation succeeded, set the state with new values
+        const { farmersPhn, farmerName, baleQuantity } = values;
+        setFarmersPhoneNo(farmersPhn);
+        setFarmerName(farmerName);
+        setBaleQuantity(baleQuantity);
+        resetForm();
+      })
+      .catch((errors) => {
+        // Validation failed, display error messages
+        const validationErrors = {};
+        errors.inner.forEach((error) => {
+          validationErrors[error.path] = error.message;
+        });
+        setErrors(validationErrors);
       });
-      setErrors(validationErrors);
-    });
-};
+  };
   return (
     <div className='form-container fadeInUp'>
       <h1>Transport Permit</h1>
@@ -55,7 +56,7 @@ const handleSubmit = (values, { resetForm, setErrors }) => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({  values, isSubmitting}) => (
+        {({ values, isSubmitting }) => (
           <Form >
             <label>
               Farmers No:
@@ -64,7 +65,7 @@ const handleSubmit = (values, { resetForm, setErrors }) => {
             <br />
             <label>
               Farmers Phn:
-              <Field type="text" name="farmersPhn"/>
+              <Field type="text" name="farmersPhn" />
               <div className="error-message">
                 <ErrorMessage name="farmersPhn" />
               </div>
@@ -98,13 +99,37 @@ const handleSubmit = (values, { resetForm, setErrors }) => {
             />
 
             <div className="permit" ref={componentRef}>
-              <h2>Transport Permit</h2>
-              <p>Date: {currentDate}</p>
-              <p>Permit No: {farmersNo}</p>
-              <p>Farmers Phn: {farmersPhoneNo}</p>
-              <p>Farmer Name: {farmerName}</p>
-              <p>Bale Quantity: {baleQuantity}</p>
-              <p>Permit Expiry: {formattedExpiryDate}</p>
+              <h1>Virgo Tobaco Limited</h1>
+              <h2>Transport Permit (TP)</h2>
+              <div className='tp-permit'>
+                <div>
+                  <p>Production Area: {currentDate}</p>
+                  <p>Farmer's Reg No: {currentDate}</p>
+                  <p>Farmer's Name: {farmerName}</p>
+                  <p>Father's Name: {farmerName}</p>
+                  <p>Village: {currentDate}</p>
+                  <p>Thana: {currentDate}</p>
+                  <p>Zilla: {currentDate}</p>
+                  <hr />
+                  <h6 className='signature'>FT's Signature</h6>
+                </div>
+                <div>
+                  <img src="https://i.ibb.co/NsT2V3q/Virgo-Logo-removebg-preview-1.png" width='150px' alt="" />
+                  
+                  <h6 className='signature'>Farmers's Signature</h6>
+                </div>
+                <div>
+                  <p>Crop Year: {currentDate}</p>
+                  <p>TP Circle No: {farmersNo}</p>
+                  <p>Buying Date: {formattedExpiryDate}</p>
+                  <p>Buying Center: {farmerName}</p>
+                  <p>Tobacco Type: {baleQuantity}</p>
+                  <p>Bale/Loose Amount: {formattedExpiryDate}</p>
+                  <p>In Word: {formattedExpiryDate}</p>
+                  <hr/>
+                  <h6 className='signature'>Authorised's Signature</h6>
+                </div>
+              </div>
             </div>
           </Form>
         )}

@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FarmerRegistrationForm from './components/FieldTechnitian/FarmerRegistrationForm';
 import FTDashboard from './components/FieldTechnitian/FTDashboard';
 import FTTransportPermit from './components/FieldTechnitian/FTTransportPermit';
+import FTLoanSaction from './components/FieldTechnitian/FTLoanSanction';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<Home />}></Route>
           <Route path='reg-farmers' element={<FarmerRegistrationForm />}></Route>
           <Route path='transport-permit' element={<FTTransportPermit />}></Route>
+          <Route path='loan' element={<FTLoanSaction />}></Route>
         </Route>
         <Route path='/' element={<Signin />}></Route>
 

@@ -217,17 +217,141 @@ option:disabled {
 
 
 @media print {
-  .permit {
+  .permit>h1,h2{
+    text-align: center;
+  }
+  .permit{
+    margin: 15px;
+  }
+
+  .tp-permit {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
   }
+  .tp-permit > h6 {
+    border: 4px dotted black;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
   
-  .permit > *:first-child {
+  
+  .tp-permit > *:first-child {
     margin-right: auto;
   }
   
-  .permit > *:last-child {
+  .tp-permit > *:last-child {
     margin-left: auto;
   }
+
+  .tp-permit div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .tp-permit div hr {
+    width: 150px;
+    border-style: dotted;
+    border-width: 1px;
+    font-weight: bold;
+    margin-left: -5px;
+    margin-top: 20px;
+  }
+  
 }
+
+
+/* Styling for the Loan Sanction form */
+
+/* h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  width: 200px;
+}
+
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  width: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e8e41;
+} */
+
+
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+select,
+input[type="number"],
+button {
+  margin: 10px 0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+select:focus,
+input[type="number"]:focus {
+  outline: none;
+}
+
+select {
+  background-color: #f2f2f2;
+  width: 250px;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  width: 70px;
+}
+
+button {
+  background-color:#81ecec;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
