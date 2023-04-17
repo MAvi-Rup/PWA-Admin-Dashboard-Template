@@ -64,7 +64,7 @@ export const SidebarDataFT = [
   },
   {
     icon: UilUsersAlt,
-    heading: 'View Users',
+    heading: "View Farmer's",
     link:'users'
   }
 ];

@@ -332,8 +332,9 @@ select {
   cursor: pointer;
 }
 
-input[type="number"] {
+.input_number {
   width: 70px;
+  margin-left: 10px;
 }
 
 button {

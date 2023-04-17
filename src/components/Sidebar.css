@@ -57,10 +57,11 @@
 }
 
 .menu .menuItem:last-child {
-  position: absolute;
+  
   bottom: 2.3rem;
   width: 100%;
   z-index: 2;
+  margin-top: 150px;
 }
 
 .active {

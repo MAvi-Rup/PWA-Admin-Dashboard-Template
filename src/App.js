@@ -13,6 +13,7 @@ import FarmerRegistrationForm from './components/FieldTechnitian/FarmerRegistrat
 import FTDashboard from './components/FieldTechnitian/FTDashboard';
 import FTTransportPermit from './components/FieldTechnitian/FTTransportPermit';
 import FTLoanSaction from './components/FieldTechnitian/FTLoanSanction';
+import FTViewFarmers from './components/FieldTechnitian/FTViewFarmers';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='reg-farmers' element={<FarmerRegistrationForm />}></Route>
           <Route path='transport-permit' element={<FTTransportPermit />}></Route>
           <Route path='loan' element={<FTLoanSaction />}></Route>
+          <Route path='users' element={<FTViewFarmers />}></Route>
         </Route>
         <Route path='/' element={<Signin />}></Route>
 
