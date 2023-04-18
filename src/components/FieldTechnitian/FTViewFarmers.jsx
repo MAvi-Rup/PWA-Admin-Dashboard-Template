@@ -36,7 +36,7 @@ const FTViewFarmers = () => {
   ];
 
   return (
-    <div className="datatable">
+    <div className="datatable fadeInUp">
       <div className="datatableTitle">
         View Farmers
         <Link to="/farmers/new" className="link">

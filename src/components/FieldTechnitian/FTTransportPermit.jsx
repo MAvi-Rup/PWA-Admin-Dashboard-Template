@@ -115,7 +115,7 @@ const FTTransportPermit = () => {
                 </div>
                 <div>
                   <img src="https://i.ibb.co/NsT2V3q/Virgo-Logo-removebg-preview-1.png" width='150px' alt="" />
-                  
+
                   <h6 className='signature'>Farmers's Signature</h6>
                 </div>
                 <div>
@@ -126,7 +126,7 @@ const FTTransportPermit = () => {
                   <p>Tobacco Type: {baleQuantity}</p>
                   <p>Bale/Loose Amount: {formattedExpiryDate}</p>
                   <p>In Word: {formattedExpiryDate}</p>
-                  <hr/>
+                  <hr />
                   <h6 className='signature'>Authorised's Signature</h6>
                 </div>
               </div>
