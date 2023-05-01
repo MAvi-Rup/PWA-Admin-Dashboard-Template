@@ -1,27 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, setFieldValue } from "formik";
 import * as Yup from "yup";
 import './FarmerRegistrationForm.css'
 import { useState } from "react";
 import { UilLocationArrow } from "@iconscout/react-unicons";
+import { toast } from "react-toastify";
+import axios from "axios";
 
-const initialValues = {
-    name: "",
-    fatherName: "",
-    village: "",
-    upjilla: "",
-    gilla: "",
-    nid: "",
-    mobileNo: "",
-    location: "",
-    plantation: "",
-    target: "",
-    accountNo: "",
-    bankName: "",
-    branch: "",
-    routingNo: "",
-    farmerPic: null,
-};
+
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -61,13 +47,13 @@ const validationSchema = Yup.object().shape({
 });
 
 
-const onSubmit = (values) => {
-    console.log(values);
-    // Here you can submit the form data to the backend
-};
+
+
 
 const FarmerRegistrationForm = () => {
     const [locationError, setLocationError] = useState("");
+    const formRef = useRef(null);
+
     const [isFetchingLocation, setIsFetchingLocation] = useState(false);
     const [locationFieldValue, setLocationFieldValue] = useState("");
 
@@ -81,7 +67,18 @@ const FarmerRegistrationForm = () => {
         Manikgonj: ["MKUpjila8", "MKUpjila9", "MkUpjila10"]
     };
 
-
+    const handleSubmit = async (values, { resetForm }) => {
+        try {
+          // Make an API call using axios
+          const response = await axios.post('http://localhost:5001/add-farmers', values);
+          console.log(response.data); // Handle the response as needed
+          toast.success('Form submitted successfully');
+          resetForm(); // Reset the form after successful submission
+        } catch (error) {
+          console.error(error);
+          toast.error('An error occurred while submitting the form');
+        }
+      };
 
 
     const getLocation = (setFieldValue) => {
@@ -110,11 +107,27 @@ const FarmerRegistrationForm = () => {
         <div className="form-container fadeInUp">
             <h1>Register Farmer</h1>
             <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
+                initialValues={{
+                    name: "",
+                    fatherName: "",
+                    village: "",
+                    upjilla: "",
+                    gilla: "",
+                    nid: "",
+                    mobileNo: "",
+                    location: "",
+                    plantation: "",
+                    target: "",
+                    accountNo: "",
+                    bankName: "",
+                    branch: "",
+                    routingNo: "",
+                    farmerPic: null,
+                }}
+                //validationSchema={validationSchema}
+                onSubmit={handleSubmit}
             >
-                {({ values, errors, touched, setFieldValue }) => (
+                {({  setFieldValue }) => (
                     <Form>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
@@ -141,15 +154,6 @@ const FarmerRegistrationForm = () => {
                             </div>
 
                         </div>
-
-                        {/* <div className="form-group">
-                            <label htmlFor="upjilla">Thana/Upjilla</label>
-                            <Field type="text" name="upjilla" />
-                            <div className="error-message" >
-                                <ErrorMessage name="upjilla" />
-                            </div>
-
-                        </div> */}
 
                         <div className="form-group">
                             <label htmlFor="jilla">Jilla</label>
@@ -195,9 +199,7 @@ const FarmerRegistrationForm = () => {
                             <Field type="text" name="nid" />
                             <div className="error-message">
                                 <ErrorMessage name="nid" />
-
                             </div>
-
                         </div>
 
                         <div className="form-group">
@@ -241,29 +243,22 @@ const FarmerRegistrationForm = () => {
                             <Field type="number" name="target" />
                             <div className="error-message" >
                                 <ErrorMessage name="target" />
-
                             </div>
 
                         </div>
-
                         <div className="form-group">
                             <label htmlFor="accountNo">Account No</label>
                             <Field type="text" name="accountNo" />
                             <div className="error-message" >
                                 <ErrorMessage name="accountNo" />
-
                             </div>
-
                         </div>
-
                         <div className="form-group">
                             <label htmlFor="bankName">Bank Name</label>
                             <Field type="text" name="bankName" />
                             <div className="error-message">
                                 <ErrorMessage name="bankName" />
-
                             </div>
-
                         </div>
 
                         <div className="form-group">
@@ -286,21 +281,6 @@ const FarmerRegistrationForm = () => {
 
                         </div>
 
-                        {/* <div className="form-group">
-                            <label htmlFor="farmerPic">Farmer Picture</label>
-                            <Field
-                                type="file"
-                                name="farmerPic"
-                                onChange={(event) => {
-                                    setFieldValue("farmerPic", event.currentTarget.files[0]);
-                                }}
-                            />
-                            <div className="error-message" >
-                                <ErrorMessage name="farmerPic" />
-
-                            </div>
-
-                        </div> */}
                         <div className="form-group">
                             <label htmlFor="farmerPic">Farmer Picture</label>
                             <input
@@ -316,11 +296,8 @@ const FarmerRegistrationForm = () => {
                                 <ErrorMessage name="farmerPic" />
                             </div>
                         </div>
-
-
-
-
                         <button type="submit">Submit</button>
+
                     </Form>
                 )}
             </Formik>
@@ -329,3 +306,56 @@ const FarmerRegistrationForm = () => {
 };
 
 export default FarmerRegistrationForm;
+
+
+// import React from 'react';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import axios from 'axios';
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+// const FarmerRegistrationForm = () => {
+//   const handleSubmit = async (values, { resetForm }) => {
+//     try {
+//       // Make an API call using axios
+//       const response = await axios.post('http://localhost:5001/add-farmers', values);
+//       console.log(response.data); // Handle the response as needed
+//       toast.success('Form submitted successfully');
+//       resetForm(); // Reset the form after successful submission
+//     } catch (error) {
+//       console.error(error);
+//       toast.error('An error occurred while submitting the form');
+//     }
+//   };
+
+//   return (
+//     <Formik
+//       initialValues={{ name: '', email: '', address: '' }}
+//       onSubmit={handleSubmit}
+//     >
+//       <Form>
+//         <div>
+//           <label htmlFor="name">Name:</label>
+//           <Field type="text" id="name" name="name" />
+//         </div>
+//         <div>
+//           <label htmlFor="email">Email:</label>
+//           <Field type="email" id="email" name="email" />
+//         </div>
+//         <div>
+//           <label htmlFor="address">Address:</label>
+//           <Field type="text" id="address" name="address" />
+//         </div>
+//         <ErrorMessage name="name" component="div" />
+//         <ErrorMessage name="email" component="div" />
+//         <ErrorMessage name="address" component="div" />
+        
+//       </Form>
+//     </Formik>
+//   );
+// };
+
+// export default FarmerRegistrationForm;
+
+
+
