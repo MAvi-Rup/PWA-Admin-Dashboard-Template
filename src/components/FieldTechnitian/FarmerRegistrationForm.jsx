@@ -7,8 +7,6 @@ import { UilLocationArrow } from "@iconscout/react-unicons";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-
-
 const validationSchema = Yup.object().shape({
     name: Yup.string()
         .required("Name is required")
@@ -43,7 +41,7 @@ const validationSchema = Yup.object().shape({
     routingNo: Yup.string()
         .required("Routing no is required")
         .matches(/^[0-9]+$/, "Routing no must be a number"),
-    farmerPic: Yup.mixed().required("Farmer picture is required"),
+
 });
 
 
@@ -52,7 +50,7 @@ const validationSchema = Yup.object().shape({
 
 const FarmerRegistrationForm = () => {
     const [locationError, setLocationError] = useState("");
-    const formRef = useRef(null);
+
 
     const [isFetchingLocation, setIsFetchingLocation] = useState(false);
     const [locationFieldValue, setLocationFieldValue] = useState("");
@@ -124,7 +122,7 @@ const FarmerRegistrationForm = () => {
                     routingNo: "",
                     farmerPic: null,
                 }}
-                //validationSchema={validationSchema}
+                // validationSchema={validationSchema}
                 onSubmit={handleSubmit}
             >
                 {({  setFieldValue }) => (
@@ -349,7 +347,7 @@ export default FarmerRegistrationForm;
 //         <ErrorMessage name="name" component="div" />
 //         <ErrorMessage name="email" component="div" />
 //         <ErrorMessage name="address" component="div" />
-        
+
 //       </Form>
 //     </Formik>
 //   );
@@ -357,5 +355,90 @@ export default FarmerRegistrationForm;
 
 // export default FarmerRegistrationForm;
 
+// import * as Yup from 'yup';
+// import './FarmerRegistrationForm.css'
+// import React from 'react';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import axios from 'axios';
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
+// const FarmerRegistrationForm = () => {
+//     const fieldNames = [
+//         'name',
+//         'fatherName',
+//         'village',
+//         'upjilla',
+//         'gilla',
+//         'nid',
+//         'mobileNo',
+//         'location',
+//         'plantation',
+//         'target',
+//         'accountNo',
+//         'bankName',
+//         'branch',
+//     ];
 
+//     const validationSchema = Yup.object({
+//         name: Yup.string().required('Name is required'),
+//         fatherName: Yup.string().required("Father's Name is required"),
+//         // Add additional validation rules for other fields
+//         phone: Yup.string()
+//             .required('Phone number is required')
+//             .matches(/^\d{10}$/, 'Phone number must be 10 digits'),
+//         nid: Yup.string()
+//             .required('NID is required')
+//             .matches(/^\d{6,}$/, 'NID must be at least 6 digits'),
+//     });
+
+//     const handleSubmit = async (values, { resetForm }) => {
+//         try {
+//             // Make an API call using axios
+//             const response = await axios.post('http://localhost:5001/add-farmers', values);
+//             console.log(response.data); // Handle the response as needed
+//             toast.success('Form submitted successfully');
+//             resetForm(); // Reset the form after successful submission
+//         } catch (error) {
+//             console.error(error);
+//             toast.error('An error occurred while submitting the form');
+//         }
+//     };
+
+//     return (
+//         <div className="form-container fadeInUp">
+//             <Formik
+//                 initialValues={{
+//                     name: '',
+//                     fatherName: '',
+//                     village: '',
+//                     upjilla: '',
+//                     gilla: '',
+//                     nid: '',
+//                     mobileNo: '',
+//                     location: '',
+//                     plantation: '',
+//                     target: '',
+//                     accountNo: '',
+//                     bankName: '',
+//                     branch: '',
+//                 }}
+//                 validationSchema={validationSchema}
+//                 onSubmit={handleSubmit}
+//             >
+//                 <Form>
+//                     {fieldNames.map((fieldName) => (
+//                         <div key={fieldName}>
+//                             <label htmlFor={fieldName}>{fieldName}:</label>
+//                             <Field type="text" id={fieldName} name={fieldName} />
+//                             <ErrorMessage name={fieldName} component="div" />
+//                         </div>
+//                     ))}
+//                     <button type="submit">Submit</button>
+//                 </Form>
+//             </Formik>
+//         </div>
+//     );
+// };
+
+// export default FarmerRegistrationForm;
